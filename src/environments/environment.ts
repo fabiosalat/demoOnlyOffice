@@ -4,9 +4,6 @@
 
 export const environment = {
   production: false,
-  // baseUrl: 'http://10.167.9.7:9080/camera-gfa-be',
   baseUrl: 'http://localhost:9080/camera-gfa-be',
-  alfrescoUrl: 'http://10.167.9.7:8080/alfresco/s/parashift/onlyoffice/',
-  nodeRef: 'nodeRef=workspace://SpacesStore/'
 
 };
