@@ -1,13 +1,1 @@
-
-<div style="height : 100vh">
-  <document-editor *ngIf="config$ | async as onlyOfficeConfig"
-  id="document"
-  documentServerUrl="http://10.167.9.9/"
-  [config]="onlyOfficeConfig.editorConfig"
-  [events_onDocumentReady]="onDocumentReady"
-  [events_onRequestHistory]="onRequestHistory"
-  [events_onRequestHistoryData]="onRequestHistoryData"
-  [events_onRequestHistoryClose]="onRequestHistoryClose"
-  [events_onRequestRestore]="onRequestHistory"
-  ></document-editor>
-</div>
+<router-outlet></router-outlet>

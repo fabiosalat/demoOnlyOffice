@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  baseUrl: 'insert url',
+  useSAML: true
 };

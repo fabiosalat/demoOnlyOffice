@@ -1,0 +1,12 @@
+<div style="height : 100vh">
+  <document-editor *ngIf="config$ | async as onlyOfficeConfig"
+  id="document"
+  [documentServerUrl]="onlyOfficeConfig.onlyofficeUrl"
+  [config]="onlyOfficeConfig.editorConfig"
+  [events_onDocumentReady]="onDocumentReady"
+  [events_onRequestHistory]="onRequestHistory"
+  [events_onRequestHistoryData]="onRequestHistoryData"
+  [events_onRequestHistoryClose]="onRequestHistoryClose"
+  [events_onRequestRestore]="onRequestRestore"
+  ></document-editor>
+</div>
