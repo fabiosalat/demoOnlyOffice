@@ -16,7 +16,7 @@ export class AuthService {
 	if(this.cookieService.check(this.TOKEN)){
 		let token: string = this.cookieService.get(this.TOKEN);
 		localStorage.setItem(this.TOKEN, token);
-		this.cookieService.delete(this.TOKEN, '/', 'intra.camera.it');
+		this.cookieService.delete(this.TOKEN);
 	}
   }
 

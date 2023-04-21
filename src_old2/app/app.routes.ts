@@ -12,16 +12,12 @@ export const routes: Routes = [
 		path: '',
 		component: AppComponent,
 		canActivate: [AuthGuard],
-		children: [
-			{
-				path: 'main-onlyoffice',
-				component: MainOnlyofficeComponent
-			},
-			{
-				path: 'main-onlyoffice/:id',
-				component: MainOnlyofficeComponent
-			}
-		]
+    children: [
+      {
+        path: 'main-onlyoffice',
+        component: MainOnlyofficeComponent
+      }
+    ]
   },
   {
 		path: '',
@@ -38,7 +34,7 @@ export const routes: Routes = [
 	},
 	{
 		path: '**',
-		redirectTo: '/main-onlyoffice'
+		redirectTo: '/'
 	}
 ];
 

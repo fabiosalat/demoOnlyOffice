@@ -32,7 +32,6 @@ export class SecurityInterceptor implements HttpInterceptor {
 
 			if (response.status === 401) {
 				const redirectUrl = this.router.url;
-				debugger;
 				this.router.navigate(['home'], { queryParams: { redirectUrl } }).then();
 				response.error = { error: { message: 'Session expired.' } };
 			}

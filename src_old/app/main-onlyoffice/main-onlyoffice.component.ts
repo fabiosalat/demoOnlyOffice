@@ -5,7 +5,6 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-onlyoffice',
@@ -13,21 +12,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-onlyoffice.component.css']
 })
 export class MainOnlyofficeComponent {
-  id: string =  "838ff914-cec2-46e5-8138-747c75f66418";
+  //id: string = "898b882b-acc7-4e0e-bee7-a1300e779029";
+  id: string = "6b0845f6-4f72-4551-9f80-fc14a195c072";
   config$: Observable<any> = new Observable<any>;
-  config!: IConfig;
+  config: IConfig | undefined;
   docEditor: any;
   TOKEN: string = 'id_token';
 
   constructor(private http: HttpClient,
-              private authService: AuthService,
-              private route: ActivatedRoute){
-    
-    this.route.params.subscribe(params => {
-      if(params['id']){
-        this.id = params['id'];
-      }
-    });
+              private authService: AuthService){
 
     let headers = new HttpHeaders();
 
@@ -43,11 +36,9 @@ export class MainOnlyofficeComponent {
       const url = Location.joinWithSlash(`${environment.baseUrl}`, `/api/prepare/${this.id}`);
 
       this.config$ = this.http.get<any>(url, options).pipe(map(res => { 
-        res.editorConfig.document.permissions.review = true;
-        res.editorConfig.document.permissions.reviewGroups = (res.editorConfig.editorConfig.user.lastname == "Nevadini") ? [""] : [];
-        return res;
-      }));
-
+          res.editorConfig.document.permissions.review = true; 
+          return res;}
+        ));
   }
 
   onDocumentReady = () => {
@@ -124,8 +115,9 @@ export class MainOnlyofficeComponent {
       }, 3000);
 
     }, (error) => {
-      alert("IL DOCUMENTO E' APERTO DA ALTRI UTENTI, RIPROVA");
+      console.log("IL DOCUMENTO E' APERTO DA ALTRI UTENTI");
       console.log(error);
+      window.location.reload();
     });
 
   }

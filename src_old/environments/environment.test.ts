@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  //baseUrl: 'http://localhost:9080/camera-gfa-be',
   baseUrl: 'https://sl94.intra.camera.it:8449/faa-service',
   useSAML: true
 

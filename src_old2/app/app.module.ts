@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { AppRoutes } from './app.routes';
 import { MainOnlyofficeComponent } from './main-onlyoffice/main-onlyoffice.component';
-import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -34,9 +33,7 @@ import { CookieService } from 'ngx-cookie-service';
     multi: true
   },
   SecurityService,
-  AuthGuard,
-  CookieService
-  ],
+  AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
